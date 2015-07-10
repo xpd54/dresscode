@@ -24,6 +24,9 @@
 
     [self.view addSubview:self.loginButton];
     [self showDressView];
+    [FBSDKProfile enableUpdatesOnAccessTokenChange:YES];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(profileGetUpdated:) name:FBSDKProfileDidChangeNotification object:nil];
+
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
 }
@@ -31,21 +34,25 @@
 - (void) showDressView {
     if ([FBSDKAccessToken currentAccessToken]) {
         DressViewController *dressViewController = [[DressViewController alloc] init];
+        dressViewController.userId = [FBSDKProfile currentProfile].userID;
+        dressViewController.firstName = [FBSDKProfile currentProfile].firstName;
         [self.navigationController pushViewController:dressViewController animated:YES];
     }
+}
+
+-(void)profileGetUpdated:(NSNotification *) notification{
+    [self showDressView];
 }
 
 #pragma mark FBSDKLoginButtonDelegate method
 
 - (void) loginButton:(FBSDKLoginButton *)loginButton didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result error:(NSError *)error {
-    if (!result.isCancelled) {
-        [self showDressView];
-    }
-    NSLog(@"========");
+    
 }
 
 - (void) loginButtonDidLogOut:(FBSDKLoginButton *)loginButton {
-    NSLog(@"-------");
+    
 }
+
 
 @end

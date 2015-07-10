@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <FBSDKCoreKit/FBSDKCoreKit.h>
-#import <FBSDKLoginKit/FBSDKLoginKit.h>
 @interface DressViewController : UIViewController
+@property (strong, nonatomic) NSString *userId;
+@property (strong, nonatomic) NSString *firstName;
 @end
