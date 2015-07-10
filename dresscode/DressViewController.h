@@ -10,5 +10,4 @@
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 @interface DressViewController : UIViewController
-@property (strong,nonatomic) FBSDKLoginButton *loginButton;
 @end

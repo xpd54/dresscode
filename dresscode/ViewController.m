@@ -10,7 +10,7 @@
 #import "DressViewController.h"
 
 @interface ViewController ()
-
+@property (strong, nonatomic) FBSDKLoginButton *loginButton;
 @end
 
 @implementation ViewController
@@ -18,24 +18,34 @@
 - (void)viewDidLoad {
     [self setTitle:@"Login"];
     [self.view setBackgroundColor:[UIColor lightGrayColor]];
-    
-    FBSDKLoginButton *loginButton = [[FBSDKLoginButton alloc] init];
-    loginButton.center = self.view.center;
-    [self.view addSubview:loginButton];
-    
-    if ([FBSDKAccessToken currentAccessToken]) {
-        DressViewController *dressViewController = [[DressViewController alloc] init];
-        dressViewController.loginButton = loginButton;
-        [self.navigationController pushViewController:dressViewController animated:YES];
-    }
-    
+    self.loginButton = [[FBSDKLoginButton alloc] init];
+    self.loginButton.center = self.view.center;
+    self.loginButton.delegate = self;
+
+    [self.view addSubview:self.loginButton];
+    [self showDressView];
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void) showDressView {
+    if ([FBSDKAccessToken currentAccessToken]) {
+        DressViewController *dressViewController = [[DressViewController alloc] init];
+        [self.navigationController pushViewController:dressViewController animated:YES];
+    }
+}
+
+#pragma mark FBSDKLoginButtonDelegate method
+
+- (void) loginButton:(FBSDKLoginButton *)loginButton didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result error:(NSError *)error {
+    if (!result.isCancelled) {
+        [self showDressView];
+    }
+    NSLog(@"========");
+}
+
+- (void) loginButtonDidLogOut:(FBSDKLoginButton *)loginButton {
+    NSLog(@"-------");
 }
 
 @end
