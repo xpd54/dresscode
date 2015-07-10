@@ -7,8 +7,8 @@
 //
 
 #import "ViewController.h"
-#import <FBSDKCoreKit/FBSDKCoreKit.h>
-#import <FBSDKLoginKit/FBSDKLoginKit.h>
+#import "DressViewController.h"
+
 @interface ViewController ()
 
 @end
@@ -16,13 +16,17 @@
 @implementation ViewController
 
 - (void)viewDidLoad {
+    [self setTitle:@"Login"];
+    [self.view setBackgroundColor:[UIColor lightGrayColor]];
+    
     FBSDKLoginButton *loginButton = [[FBSDKLoginButton alloc] init];
     loginButton.center = self.view.center;
     [self.view addSubview:loginButton];
-    [self.view setBackgroundColor:[UIColor lightGrayColor]];
-    [self setTitle:@"Login"];
+    
     if ([FBSDKAccessToken currentAccessToken]) {
-        NSLog(@"=========");
+        DressViewController *dressViewController = [[DressViewController alloc] init];
+        dressViewController.loginButton = loginButton;
+        [self.navigationController pushViewController:dressViewController animated:YES];
     }
     
     [super viewDidLoad];
