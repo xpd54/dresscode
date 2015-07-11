@@ -51,13 +51,18 @@
     
     ImagePreviewController *previewController = [[ImagePreviewController alloc] init];
     previewController.selectedImage = [info valueForKey:UIImagePickerControllerOriginalImage];
-//    [previewController setPreviewDelegate:self];
-    
+    [previewController setImagePreviewDelegate:self];
     [picker pushViewController:previewController animated:YES];
 }
 
 - (void) imagePickerControllerDidCancel:(UIImagePickerController *)picker {
         [picker.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark HSPreviewControllerDelegate method
+
+- (void) userDidSelectImage:(UIImage *)image {
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

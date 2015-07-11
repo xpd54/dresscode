@@ -32,7 +32,9 @@
 }
 
 - (void) selectImage {
-    [self.imagePreviewDelegate userDidSelectImage:self.selectedImage];
+    if([[self imagePreviewDelegate] respondsToSelector:@selector(userDidSelectImage:)]) {
+        [self.imagePreviewDelegate userDidSelectImage:self.selectedImage];
+    }
 }
 
 - (void) viewWillAppear:(BOOL)animated {
