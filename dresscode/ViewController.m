@@ -25,10 +25,10 @@
     [self.view addSubview:self.loginButton];
     [self showDressView];
     [FBSDKProfile enableUpdatesOnAccessTokenChange:YES];
+    // Add observer for profile change
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(profileGetUpdated:) name:FBSDKProfileDidChangeNotification object:nil];
 
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
 }
 
 - (void) showDressView {

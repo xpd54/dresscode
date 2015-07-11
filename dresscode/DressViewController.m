@@ -8,11 +8,22 @@
 
 #import "DressViewController.h"
 #import "GreetingsView.h"
+#import "DressViewUtils.h"
+#import "ImagePreviewController.h"
 @interface DressViewController ()
 
 @end
 
 @implementation DressViewController
+
+- (void) loadView {
+    UIBarButtonItem *addImageButton = [[UIBarButtonItem alloc] initWithTitle:@"Add"
+                                                                       style:UIBarButtonItemStylePlain
+                                                                      target:self
+                                                                      action:@selector(addStuff)];
+    [[self navigationItem] setRightBarButtonItem:addImageButton];
+    [super loadView];
+}
 
 - (void)viewDidLoad {
     [self setTitle:@"Add Photo"];
@@ -20,22 +31,33 @@
     GreetingsView *greetings = [[GreetingsView alloc] initWithFrame:self.view.bounds andFirstName:self.firstName];
     [self.view addSubview:greetings];
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void) addStuff {
+    [self pickImageFromGallery];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void) pickImageFromGallery {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        UIImagePickerController *imagePickerView = [DressViewUtils imagePickerViewWithDelegates:self
+                                                                    andSourceType:UIImagePickerControllerSourceTypeSavedPhotosAlbum];
+            [self presentViewController:imagePickerView animated:YES completion:NULL];
+    });
 }
-*/
+
+#pragma mark UIImagePickerControllerDelegate methods
+
+- (void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+    
+    ImagePreviewController *previewController = [[ImagePreviewController alloc] init];
+    previewController.selectedImage = [info valueForKey:UIImagePickerControllerOriginalImage];
+//    [previewController setPreviewDelegate:self];
+    
+    [picker pushViewController:previewController animated:YES];
+}
+
+- (void) imagePickerControllerDidCancel:(UIImagePickerController *)picker {
+        [picker.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+}
 
 @end
