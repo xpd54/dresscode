@@ -7,7 +7,7 @@
 //
 
 #import "DressViewController.h"
-
+#import "GreetingsView.h"
 @interface DressViewController ()
 
 @end
@@ -15,6 +15,10 @@
 @implementation DressViewController
 
 - (void)viewDidLoad {
+    [self setTitle:@"Add Photo"];
+    [self.view setBackgroundColor:[UIColor whiteColor]];
+    GreetingsView *greetings = [[GreetingsView alloc] initWithFrame:self.view.bounds andFirstName:self.firstName];
+    [self.view addSubview:greetings];
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }

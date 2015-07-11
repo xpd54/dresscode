@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		165636C11B505FF00097B6F2 /* DressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 165636C01B505FF00097B6F2 /* DressViewController.m */; };
+		165636CB1B5083000097B6F2 /* GreetingsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 165636CA1B5083000097B6F2 /* GreetingsView.m */; };
 		C599F0AE1B4F021100002B11 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C599F0AD1B4F021100002B11 /* main.m */; };
 		C599F0B11B4F021100002B11 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C599F0B01B4F021100002B11 /* AppDelegate.m */; };
 		C599F0B41B4F021100002B11 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C599F0B31B4F021100002B11 /* ViewController.m */; };
@@ -20,6 +21,8 @@
 /* Begin PBXFileReference section */
 		165636BF1B505FF00097B6F2 /* DressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DressViewController.h; sourceTree = "<group>"; };
 		165636C01B505FF00097B6F2 /* DressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DressViewController.m; sourceTree = "<group>"; };
+		165636C91B5083000097B6F2 /* GreetingsView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GreetingsView.h; sourceTree = "<group>"; };
+		165636CA1B5083000097B6F2 /* GreetingsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GreetingsView.m; sourceTree = "<group>"; };
 		41C98D162FD05334FA9DDBDD /* Pods-dresscode.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dresscode.release.xcconfig"; path = "Pods/Target Support Files/Pods-dresscode/Pods-dresscode.release.xcconfig"; sourceTree = "<group>"; };
 		A70A7DDDF1D47D08B85F4914 /* Pods-dresscode.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dresscode.debug.xcconfig"; path = "Pods/Target Support Files/Pods-dresscode/Pods-dresscode.debug.xcconfig"; sourceTree = "<group>"; };
 		B3DC043C8F87C982B5D861EF /* libPods-dresscode.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-dresscode.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -91,6 +94,8 @@
 				C599F0B31B4F021100002B11 /* ViewController.m */,
 				165636BF1B505FF00097B6F2 /* DressViewController.h */,
 				165636C01B505FF00097B6F2 /* DressViewController.m */,
+				165636C91B5083000097B6F2 /* GreetingsView.h */,
+				165636CA1B5083000097B6F2 /* GreetingsView.m */,
 				C599F0B51B4F021100002B11 /* Main.storyboard */,
 				C599F0B81B4F021100002B11 /* Assets.xcassets */,
 				C599F0BA1B4F021100002B11 /* LaunchScreen.storyboard */,
@@ -215,6 +220,7 @@
 			files = (
 				C599F0B41B4F021100002B11 /* ViewController.m in Sources */,
 				C599F0B11B4F021100002B11 /* AppDelegate.m in Sources */,
+				165636CB1B5083000097B6F2 /* GreetingsView.m in Sources */,
 				165636C11B505FF00097B6F2 /* DressViewController.m in Sources */,
 				C599F0AE1B4F021100002B11 /* main.m in Sources */,
 			);
