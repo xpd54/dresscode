@@ -9,7 +9,6 @@
 #import "DressViewController.h"
 #import "GreetingsView.h"
 #import "DressViewUtils.h"
-#import "ImagePreviewController.h"
 @interface DressViewController ()
 
 @end
@@ -48,15 +47,12 @@
 #pragma mark UIImagePickerControllerDelegate methods
 
 - (void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-    
-    ImagePreviewController *previewController = [[ImagePreviewController alloc] init];
-    previewController.selectedImage = [info valueForKey:UIImagePickerControllerOriginalImage];
-    [previewController setImagePreviewDelegate:self];
-    [picker pushViewController:previewController animated:YES];
+    NSLog(@"info %@",info);
+    [picker.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void) imagePickerControllerDidCancel:(UIImagePickerController *)picker {
-        [picker.presentingViewController dismissViewControllerAnimated:YES completion:nil];
+    [picker.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark HSPreviewControllerDelegate method

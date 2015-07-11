@@ -15,10 +15,21 @@
     
     UIImagePickerController *pickerImageView = [[UIImagePickerController alloc] init];
     pickerImageView.mediaTypes = [UIImagePickerController availableMediaTypesForSourceType:UIImagePickerControllerSourceTypeSavedPhotosAlbum];
-    pickerImageView.allowsEditing = NO;
+    pickerImageView.allowsEditing = YES;
     pickerImageView.delegate = delegates;
     pickerImageView.sourceType = sourceType;
     return pickerImageView;
+}
+
++ (NSString *) cacheDirectory {
+    // save files in caches
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+    NSString *dressDir = [paths[0] stringByAppendingPathComponent:@"DressImages"];
+    [[NSFileManager defaultManager] createDirectoryAtPath:dressDir
+                              withIntermediateDirectories:YES
+                                               attributes:nil
+                                                    error:nil];
+    return dressDir;
 }
 
 

@@ -7,9 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ImagePreviewController.h"
 
-@interface DressViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate, ImagePreviewControllerDelegate>
+@interface DressViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 @property (strong, nonatomic) NSString *userId;
 @property (strong, nonatomic) NSString *firstName;
 @end
