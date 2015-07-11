@@ -18,9 +18,9 @@
     self.view = [[UIView alloc] init];
     
     self.imageView = [[UIImageView alloc] initWithFrame:CGRectMake(20,
-                                                                          84,
-                                                                          [UIScreen mainScreen].bounds.size.width - 40,
-                                                                          [UIScreen mainScreen].bounds.size.height)];
+                                                                   84,
+                                                                   [UIScreen mainScreen].bounds.size.width - 40,
+                                                                   [UIScreen mainScreen].bounds.size.height - 40)];
     [self.imageView.layer setBorderColor:[UIColor lightGrayColor].CGColor];
     [self.imageView.layer setBorderWidth:1.0f];
     [self.imageView setContentMode:UIViewContentModeScaleAspectFit];
