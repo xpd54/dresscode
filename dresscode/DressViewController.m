@@ -44,10 +44,27 @@
     });
 }
 
+// get id string from UIImagePickerControllerReferenceURL To store image with uniqe name
+
+- (NSString *) getIdOfReferenceURL:(NSURL *)URL {
+    NSString *qeury = [URL query];
+    __block NSString *idOfReferenceURL = [[NSString alloc] init];
+    NSArray *component = [qeury componentsSeparatedByString:@"&"];
+    [component enumerateObjectsUsingBlock:^(NSString *obj, NSUInteger idx, BOOL *stop) {
+        if(!([obj rangeOfString:@"id"].location == NSNotFound)){
+            idOfReferenceURL = obj;
+        }
+    }];
+    return idOfReferenceURL;
+}
+
 #pragma mark UIImagePickerControllerDelegate methods
 
 - (void) imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
-    NSLog(@"info %@",info);
+    UIImage *image = [info valueForKey:UIImagePickerControllerEditedImage];
+    NSString *imageId = [self getIdOfReferenceURL:[info valueForKey:UIImagePickerControllerReferenceURL]];
+    NSString *path = [DressViewUtils storeImage:image withReferenceImageId:imageId];
+    NSLog(@"%@",path);
     [picker.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
 

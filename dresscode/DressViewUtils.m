@@ -21,16 +21,26 @@
     return pickerImageView;
 }
 
-+ (NSString *) cacheDirectory {
-    // save files in caches
-    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
-    NSString *dressDir = [paths[0] stringByAppendingPathComponent:@"DressImages"];
-    [[NSFileManager defaultManager] createDirectoryAtPath:dressDir
-                              withIntermediateDirectories:YES
-                                               attributes:nil
-                                                    error:nil];
-    return dressDir;
++ (NSString *) storeImage:(UIImage *)image withReferenceImageId:(NSString *)imageId {
+    // save files in DocumentDirectoryN
+    NSData *imageData = UIImagePNGRepresentation(image);
+    NSString *filePath = [DressViewUtils documentsPathForImageId:imageId];
+    
+    [imageData writeToFile:filePath atomically:YES];
+    return filePath;
 }
 
++ (UIImage *) getImageWithReferenceImageId:(NSString *)imageId {
+    NSString *filePath = [DressViewUtils documentsPathForImageId:imageId];
+    NSData *imageData = [NSData dataWithContentsOfFile:filePath];
+    return [UIImage imageWithData:imageData];
+}
+
++ (NSString *)documentsPathForImageId:(NSString *)imageId {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES);
+    NSString *documentsPath = [paths objectAtIndex:0];
+    NSString *imageName = [NSString stringWithString:[NSString stringWithFormat:@"%@.png",imageId]];
+    return [documentsPath stringByAppendingPathComponent:imageName];
+}
 
 @end

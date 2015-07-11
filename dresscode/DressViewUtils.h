@@ -12,5 +12,6 @@
 @interface DressViewUtils : NSObject
 + (UIImagePickerController *) imagePickerViewWithDelegates:(id<UIImagePickerControllerDelegate, UINavigationControllerDelegate>)delegates
                                             andSourceType:(UIImagePickerControllerSourceType)sourceType;
-
++ (NSString *) storeImage:(UIImage *)image withReferenceImageId:(NSString *)imageId;
++ (UIImage *) getImageWithReferenceImageId:(NSString *)imageId;
 @end

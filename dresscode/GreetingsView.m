@@ -32,7 +32,7 @@
     [greeting setLineBreakMode:NSLineBreakByWordWrapping];
     [greeting setNumberOfLines:0];
     [greeting setTextAlignment:NSTextAlignmentCenter];
-    [greeting setText:[NSString stringWithFormat:@"Hey %@, \n It seems like you didn't Added anything",firstName]];
+    [greeting setText:[NSString stringWithFormat:@"Hey %@, \n It seems like you didn't add \n anything",firstName]];
     [self addSubview:greeting];
 }
 
