@@ -10,6 +10,8 @@
 		165636C11B505FF00097B6F2 /* DressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 165636C01B505FF00097B6F2 /* DressViewController.m */; };
 		165636CB1B5083000097B6F2 /* GreetingsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 165636CA1B5083000097B6F2 /* GreetingsView.m */; };
 		165636CE1B50D0A20097B6F2 /* DressViewUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 165636CD1B50D0A20097B6F2 /* DressViewUtils.m */; };
+		5FA2323E1B5197E000DFD72D /* DataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FA2323D1B5197E000DFD72D /* DataModel.m */; };
+		5FA232791B52130E00DFD72D /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FA232781B52130E00DFD72D /* libsqlite3.dylib */; };
 		C599F0AE1B4F021100002B11 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C599F0AD1B4F021100002B11 /* main.m */; };
 		C599F0B11B4F021100002B11 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C599F0B01B4F021100002B11 /* AppDelegate.m */; };
 		C599F0B41B4F021100002B11 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C599F0B31B4F021100002B11 /* ViewController.m */; };
@@ -26,6 +28,10 @@
 		165636CC1B50D0A20097B6F2 /* DressViewUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DressViewUtils.h; sourceTree = "<group>"; };
 		165636CD1B50D0A20097B6F2 /* DressViewUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DressViewUtils.m; sourceTree = "<group>"; };
 		41C98D162FD05334FA9DDBDD /* Pods-dresscode.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dresscode.release.xcconfig"; path = "Pods/Target Support Files/Pods-dresscode/Pods-dresscode.release.xcconfig"; sourceTree = "<group>"; };
+		5FA2323C1B5197E000DFD72D /* DataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataModel.h; sourceTree = "<group>"; };
+		5FA2323D1B5197E000DFD72D /* DataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataModel.m; sourceTree = "<group>"; };
+		5FA232761B5212F500DFD72D /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
+		5FA232781B52130E00DFD72D /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		A70A7DDDF1D47D08B85F4914 /* Pods-dresscode.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-dresscode.debug.xcconfig"; path = "Pods/Target Support Files/Pods-dresscode/Pods-dresscode.debug.xcconfig"; sourceTree = "<group>"; };
 		B3DC043C8F87C982B5D861EF /* libPods-dresscode.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-dresscode.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C599F0A91B4F021100002B11 /* dresscode.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dresscode.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,6 +50,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5FA232791B52130E00DFD72D /* libsqlite3.dylib in Frameworks */,
 				FA811F680D9D51267D7ECD63 /* libPods-dresscode.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -54,6 +61,8 @@
 		303473A3BB6AF4093084FAEE /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5FA232781B52130E00DFD72D /* libsqlite3.dylib */,
+				5FA232761B5212F500DFD72D /* libsqlite3.0.dylib */,
 				B3DC043C8F87C982B5D861EF /* libPods-dresscode.a */,
 			);
 			name = Frameworks;
@@ -99,6 +108,8 @@
 				165636CA1B5083000097B6F2 /* GreetingsView.m */,
 				165636CC1B50D0A20097B6F2 /* DressViewUtils.h */,
 				165636CD1B50D0A20097B6F2 /* DressViewUtils.m */,
+				5FA2323C1B5197E000DFD72D /* DataModel.h */,
+				5FA2323D1B5197E000DFD72D /* DataModel.m */,
 				C599F0B51B4F021100002B11 /* Main.storyboard */,
 				C599F0B81B4F021100002B11 /* Assets.xcassets */,
 				C599F0BD1B4F021100002B11 /* Info.plist */,
@@ -223,6 +234,7 @@
 				C599F0B11B4F021100002B11 /* AppDelegate.m in Sources */,
 				165636CE1B50D0A20097B6F2 /* DressViewUtils.m in Sources */,
 				165636CB1B5083000097B6F2 /* GreetingsView.m in Sources */,
+				5FA2323E1B5197E000DFD72D /* DataModel.m in Sources */,
 				165636C11B505FF00097B6F2 /* DressViewController.m in Sources */,
 				C599F0AE1B4F021100002B11 /* main.m in Sources */,
 			);
